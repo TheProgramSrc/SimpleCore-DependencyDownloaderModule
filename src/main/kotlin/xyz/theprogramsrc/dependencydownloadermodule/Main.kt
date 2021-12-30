@@ -1,0 +1,3 @@
+package xyz.theprogramsrc.dependencydownloadermodule
+
+class Main
