@@ -25,6 +25,7 @@ $dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloade
 $dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/loadDependency/#xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/load-dependency.html
 $dokka.location:xyz.theprogramsrc.dependencydownloadermodule/Main///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-main/index.html
 $dokka.location:xyz.theprogramsrc.dependencydownloadermodule/Main/Main/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-main/-main.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/Main/onEnable/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-main/on-enable.html
 xyz.theprogramsrc.dependencydownloadermodule
 xyz.theprogramsrc.dependencydownloadermodule.objects
 
