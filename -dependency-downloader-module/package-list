@@ -1,0 +1,30 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects////PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency/Dependency/#kotlin.String#kotlin.String#kotlin.String#kotlin.String?/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/-dependency.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency/artifactId/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/artifact-id.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency/group/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/group.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency/md5Hash/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/md5-hash.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Dependency/version/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-dependency/version.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Repository///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-repository/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Repository/Repository/#kotlin.String/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-repository/-repository.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Repository/findArtifact/#xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-repository/find-artifact.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule.objects/Repository/url/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule.objects/-repository/url.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule////PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/ClasspathLoader///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-classpath-loader/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/ClasspathLoader/loadIntoClasspath/#java.io.File/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-classpath-loader/load-into-classpath.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader.Companion///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/-companion/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader.Companion/instance/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/-companion/instance.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/DependencyDownloader/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/-dependency-downloader.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/addDependency/#xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/add-dependency.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/addRepository/#xyz.theprogramsrc.dependencydownloadermodule.objects.Repository/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/add-repository.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/isLoaded/#xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/is-loaded.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/loadDependencies/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/load-dependencies.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader/loadDependency/#xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-dependency-downloader/load-dependency.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/Main///PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-main/index.html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/Main/Main/#/PointingToDeclaration/-dependency-downloader-module/xyz.theprogramsrc.dependencydownloadermodule/-main/-main.html
+xyz.theprogramsrc.dependencydownloadermodule
+xyz.theprogramsrc.dependencydownloadermodule.objects
+
