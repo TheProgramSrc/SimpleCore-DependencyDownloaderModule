@@ -7,6 +7,6 @@ internal class RepositoryTest {
 
     @Test
     fun findArtifact(){
-        assertNotNull(Repository("https://repo.theprogramsrc.xyz", "maven-public").findArtifact(Dependency("xyz.theprogramsrc", "simplecoreapi", "0.1.10-SNAPSHOT")))
+        assertNotNull(Repository("https://repo.theprogramsrc.xyz/repository/maven-public/").findArtifact(Dependency("xyz.theprogramsrc", "simplecoreapi", "0.1.10-SNAPSHOT")))
     }
 }

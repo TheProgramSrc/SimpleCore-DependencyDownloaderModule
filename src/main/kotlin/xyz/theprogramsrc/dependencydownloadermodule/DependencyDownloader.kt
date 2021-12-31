@@ -3,7 +3,6 @@ package xyz.theprogramsrc.dependencydownloadermodule
 import xyz.theprogramsrc.dependencydownloadermodule.objects.Dependency
 import xyz.theprogramsrc.dependencydownloadermodule.objects.Repository
 import xyz.theprogramsrc.filesmodule.utils.folder
-import xyz.theprogramsrc.simplecoreapi.libs.google.gson.JsonParser
 import java.io.File
 import java.net.URL
 import java.security.MessageDigest
@@ -45,14 +44,15 @@ class DependencyDownloader {
      */
     fun addRepository(repository: Repository) {
         val add = try {
-            (JsonParser.parseString(URL("${if(repository.host.startsWith("http")) repository.host else "https://${repository.host}"}/service/rest/swagger.json").readText()).asJsonObject.get("info").asJsonObject.get("version").asString.substring(0,1).toIntOrNull() ?: 0) >= 3
-        }catch (e: Exception) {
+            URL(repository.url)
+            true
+        } catch (e: Exception) {
             false
         }
         if(add) {
             repositories.add(repository)
         } else {
-            logger.severe("Repository ${repository.host} must be a supported repository!")
+            logger.severe("Repository ${repository.url} must hava a valid url!")
         }
     }
 
@@ -67,15 +67,14 @@ class DependencyDownloader {
         val file = File(File(librariesFolder, dependency.group.replace(".", "/")).folder(), "${dependency.artifactId}-${dependency.version}.jar")
         if(isLoaded(dependency)) return file
         if(!file.exists()){
-            val repo = repositories.find { repo -> repo.findArtifact(dependency) != null } ?: return null
-            val artifactData = repo.findArtifact(dependency) ?: return null
+            val repo = repositories.firstOrNull { it.findArtifact(dependency) != null } ?: return null
+            val artifactUrl = repo.findArtifact(dependency) ?: return null
             digest.reset()
-            val downloadBytes = URL(artifactData.get("url").asString).readBytes()
-            val md5 = if(artifactData.has("md5")) artifactData.get("md5").asString else null
-            if(md5 != null){
+            val downloadBytes = URL(artifactUrl).readBytes()
+            if(dependency.md5Hash != null){
                 val downloadMd5 = digest.digest(downloadBytes).joinToString("") { "%02x".format(it) }
-                if(downloadMd5 != md5){
-                    logger.severe("MD5 mismatch for ${dependency.group}:${dependency.artifactId}! Expected: '$md5', Got: '$downloadMd5'")
+                if(downloadMd5 != dependency.md5Hash){
+                    logger.severe("MD5 mismatch for ${dependency.group}:${dependency.artifactId}! Expected: '${dependency.md5Hash}', Got: '$downloadMd5'")
                     return null
                 }
             }
