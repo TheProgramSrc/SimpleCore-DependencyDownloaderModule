@@ -7,11 +7,11 @@ plugins {
     id 'org.jetbrains.dokka' version '1.6.0'
 }
 
-def projectVersion = (System.getenv("VERSION") ?: '0.1.0-SNAPSHOT').replaceFirst("v", "").replace('/', '')
+def projectVersion = (System.getenv("VERSION") ?: '0.1.1-SNAPSHOT').replaceFirst("v", "").replace('/', '')
 
 group 'xyz.theprogramsrc'
 version projectVersion
-description 'Download dependencies from Nexus3 repositories programmatically!'
+description 'Download dependencies from repositories programmatically!'
 
 repositories {
     mavenLocal()
