@@ -1,3 +1,5 @@
 package xyz.theprogramsrc.dependencydownloadermodule
 
-class Main
+import xyz.theprogramsrc.simplecoreapi.global.module.Module
+
+class Main: Module()
