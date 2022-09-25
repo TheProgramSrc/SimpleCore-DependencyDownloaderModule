@@ -35,7 +35,7 @@ dependencies {
     compileOnly 'xyz.theprogramsrc:simplecoreapi:0.1.10-SNAPSHOT'
     compileOnly 'xyz.theprogramsrc:filesmodule:0.1.0-SNAPSHOT'
 
-    implementation 'org.json:json:20220320'
+    implementation 'org.json:json:20220924'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
 }
