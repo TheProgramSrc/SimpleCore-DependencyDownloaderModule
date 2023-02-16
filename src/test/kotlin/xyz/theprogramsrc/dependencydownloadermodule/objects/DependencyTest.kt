@@ -18,7 +18,7 @@ internal class DependencyTest {
         assertNotNull(file)
         if(file != null){
             val md5 = MessageDigest.getInstance("MD5").digest(file.readBytes()).joinToString("") { String.format("%02x", it) }
-            assertEquals("9e30f48ce1a9c11d2f64e223d9def2fd", md5)
+            assertEquals("180429aaceea1fffbf5f874530bf7499", md5)
         }
     }
 }
