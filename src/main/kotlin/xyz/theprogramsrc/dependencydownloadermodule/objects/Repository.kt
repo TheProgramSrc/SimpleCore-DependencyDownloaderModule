@@ -1,7 +1,7 @@
 package xyz.theprogramsrc.dependencydownloadermodule.objects
 
+import com.google.gson.*
 import org.json.XML
-import xyz.theprogramsrc.simplecoreapi.libs.google.gson.JsonParser
 import java.net.URL
 
 /**
