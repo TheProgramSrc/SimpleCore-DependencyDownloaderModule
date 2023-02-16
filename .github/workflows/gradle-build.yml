@@ -7,22 +7,23 @@ jobs:
     # Set up the OS
     runs-on: ubuntu-latest
     env:
-      # Nexus credentials and GitHub token
-      NEXUS_USERNAME: '${{ secrets.NEXUS_USERNAME }}'
-      NEXUS_PASSWORD: '${{ secrets.NEXUS_PASSWORD }}'
+      # Sonatype Credentials & GitHub token
+      SONATYPE_USERNAME: '${{ secrets.SONATYPE_USERNAME }}'
+      SONATYPE_PASSWORD: '${{ secrets.SONATYPE_PASSWORD }}'
       GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
       # Set environment
-      env: 'prod'
+      ENV: 'prod'
+      PROJECT_NAME: 'DependencyDownloaderModule'
     steps:
       # Checkout the Code
       - name: Checkout Code
         uses: actions/checkout@v3
       # Set up git hashes environment variables
       - name: Git Hashes
-        uses: Im-Fran/git-hashes-action@v1.0.1
+        uses: Im-Fran/git-hashes-action@v1.0.3
         # Set up version from tag environment variables
       - name: Version from Tag Action
-        uses: Im-Fran/version-from-tag-action@v1.0.1
+        uses: Im-Fran/version-from-tag-action@v1.0.3
         with:
           remove-first-character: 'v'
         # Set up the JDK
@@ -31,22 +32,30 @@ jobs:
         with:
           distribution: adopt
           java-version: 11
+          cache: 'gradle'
       # Make gradle executable
       - name: Make gradle executable
         run: chmod +x gradlew
       # Clean, Test, Publish and Build (in that order to save the artifact to the action)
       - name: Test, Deploy and Build with Gradle
-        run: ./gradlew clean test publish shadow dokkaHtml
+        run: ./gradlew clean test shadowJar dokkaHtml publish publishToSonatype closeAndReleaseSonatypeStagingRepository -no-daemon
       # Now we store the artifact in the action
       - name: Upload the artifact
         uses: actions/upload-artifact@v3
         with:
-          name: DependencyDownloaderModule
-          path: ./build/libs/DependencyDownloaderModule-${{ env.VERSION }}.jar
+          name: ${{ env.PROJECT_NAME }}
+          path: ./build/libs/${{ env.PROJECT_NAME }}-${{ env.VERSION }}.jar
+      # Here we upload the binary to the release
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: ./build/libs/${{ env.PROJECT_NAME }}-${{ env.VERSION }}.jar application/java-archive
       # Now we deploy the documents to GitHub pages
       - name: Deploy Dokka
-        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: build/dokka
           clean: true
+          clean-exclude: |
+            CNAME

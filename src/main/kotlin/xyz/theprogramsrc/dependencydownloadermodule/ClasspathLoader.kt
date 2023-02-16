@@ -1,10 +1,8 @@
 package xyz.theprogramsrc.dependencydownloadermodule
 
 import java.io.File
-import java.io.FileInputStream
 import java.net.URLClassLoader
-import java.util.jar.JarInputStream
-import java.util.zip.ZipEntry
+import java.util.jar.JarFile
 
 object ClasspathLoader {
 
@@ -12,27 +10,21 @@ object ClasspathLoader {
      * Loads a jar file into the classpath
      * @param file The jar file to load
      */
-    fun loadIntoClasspath(file: File): Boolean {
-        if(!file.name.endsWith(".jar")) return false
-        var entry: ZipEntry?
-        try {
-            URLClassLoader(arrayOf(file.toURI().toURL()), this.javaClass.classLoader).use { loader ->
-                FileInputStream(file).use { fileInputStream ->
-                    JarInputStream(fileInputStream).use { jarInputStream ->
-                        while (jarInputStream.nextEntry.also { entry = it } != null) {
-                            val entryName = entry?.name ?: continue
-                            if (entryName.endsWith(".class")) {
-                                val name = entryName.replace("/", ".").replace(".class", "")
-                                Class.forName(name, true, loader)
-                            }
-                        }
-                    }
-                }
-            }
-            return true
-        } catch (e: Exception) {
-            e.printStackTrace()
+    fun loadIntoClasspath(file: File): Boolean = try {
+        require(file.isFile && file.extension == "jar") {
+            "The input file must be a JAR file."
         }
-        return false
+
+        URLClassLoader(arrayOf(file.toURI().toURL()), this.javaClass.classLoader).use { loader ->
+            val jarFile = JarFile(file)
+            jarFile.entries().asSequence()
+                .filter { it.name.endsWith(".class") && !it.name.startsWith("META-INF/") }
+                .map { it.name.removeSuffix(".class").replace('/', '.') }
+                .forEach { loader.loadClass(it) }
+        }
+        true
+    } catch (e: Exception) {
+        e.printStackTrace()
+        false
     }
 }

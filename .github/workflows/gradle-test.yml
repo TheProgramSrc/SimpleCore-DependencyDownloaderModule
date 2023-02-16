@@ -1,6 +1,6 @@
 name: "Test"
 # Only execute this workflow when a PR is opened or when something is pushed to the master branch
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   testBuilds:
     strategy:
@@ -12,20 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     # Set up environment variables
     env:
-      env: 'local' # Set to local, so it won't deploy the jar to the repos
+      ENV: 'local' # Set to local, so it won't deploy the jar to the repos
     steps:
-    # Checkout code
-    - name: Checkout Code
-      uses: actions/checkout@v3
-    # Setup java and maven
-    - name: Set up JDK ${{ matrix.java-version }}
-      uses: actions/setup-java@v3
-      with:
-        distribution: adopt
-        java-version: ${{ matrix.java-version }}
-    # Setup executable gradle
-    - name: Make Gradle executable
-      run: chmod +x gradlew
-    # Test building without dokka
-    - name: Build Jar with Java ${{ matrix.java-version }}
-      run: ./gradlew clean publish shadow -x dokkaHtml
+      # Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      # Setup java and maven
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v3
+        with:
+          distribution: adopt
+          java-version: ${{ matrix.java-version }}
+          cache: 'gradle'
+      # Setup executable gradle
+      - name: Make Gradle executable
+        run: chmod +x gradlew
+      # Test building without dokka
+      - name: Build Jar with Java ${{ matrix.java-version }}
+        run: ./gradlew clean shadowJar test -x dokkaHtml -no-daemon
