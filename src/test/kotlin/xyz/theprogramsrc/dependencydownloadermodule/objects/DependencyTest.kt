@@ -10,8 +10,8 @@ internal class DependencyTest {
 
     @Test
     fun nexusDependencyDownloadTest(){
-        val repo = Repository("https://repo.theprogramsrc.xyz/repository/maven-public/")
-        val dependency = Dependency("cl.franciscosolis", "DiscordBotBase", "4.0.0-SNAPSHOT", "9e30f48ce1a9c11d2f64e223d9def2fd")
+        val repo = Repository("https://s01.oss.sonatype.org/content/groups/public/")
+        val dependency = Dependency("xyz.theprogramsrc", "simplecoreapi", "0.6.2-SNAPSHOT", "180429aaceea1fffbf5f874530bf7499")
         val downloader = DependencyDownloader()
         downloader.addRepository(repo)
         val file = downloader.loadDependency(dependency)
