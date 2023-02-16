@@ -1,0 +1,6 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.theprogramsrc.dependencydownloadermodule/DependencyDownloader.Companion///PointingToDeclaration/xyz/theprogramsrc/dependencydownloadermodule/DependencyDownloader.Companion.html
+xyz.theprogramsrc.dependencydownloadermodule
+xyz.theprogramsrc.dependencydownloadermodule.objects
+
