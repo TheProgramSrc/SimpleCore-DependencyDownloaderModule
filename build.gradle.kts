@@ -7,7 +7,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.0"
     id("cl.franciscosolis.blossom-extended") version "1.3.1"
 
-    kotlin("jvm") version "1.8.10"
+    kotlin("jvm") version "1.9.25"
     id("org.jetbrains.dokka") version "1.8.10"
 }
 
