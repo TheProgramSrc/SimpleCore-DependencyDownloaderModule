@@ -38,7 +38,7 @@ dependencies {
     
     implementation("org.json:json:20230227")
     
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
 }
 
 
